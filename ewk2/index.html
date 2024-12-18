@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寻宝游戏</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="background-music" autoplay loop>
+    <source src="road.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <div id="game-container">
+    <img id="story-image" class="story-image" src="images/library.jpg" alt="故事图片" />
+    <button id="startBtn" class="button">开始寻宝</button>
+  </div>
+  
+  <div id="message" class="message">欢迎来到寻宝冒险!</div>
+  <div id="loading" class="loading" style="display:none;">正在加载...</div>
+  <div id="info" class="info">加载资料...</div> <!-- 新增用于显示txt文件的资料 -->
+  <div id="nickname-container" style="text-align: center; position: absolute; top: 30%; left: 50%; transform: translateX(-50%);">
+    <input id="nicknameInput" type="text" placeholder="请输入你的昵称" class="button" style="font-size: 18px;">
+    <button id="setNicknameBtn" class="button" style="font-size: 18px;">确定昵称</button>
+</div>
+
+  <script src="main.js"></script>
+</body>
+</html>
