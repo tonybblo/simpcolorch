@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 页面标题 -->
+    <title>Game Scores</title>
+    
+    <!-- 引入外部 CSS 文件，用于设置页面样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <!-- 返回到游戏页面的链接 -->
+        <a href="{{ url_for('game') }}">Back to Game</a>
+        <!-- 显示当前玩家的用户名 -->
+        <span>Player: {{ username }}</span>
+    </nav>
+    
+    <!-- 包含个人得分和最高得分-->
+    <div class="scores-container">
+        
+        <!-- 个人得分部分 -->
+        <div class="personal-scores">
+            <h2>Your Scores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- 标题：得分 -->
+                        <th>Score</th>
+                        <!-- 标题：日期 -->
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 遍历并显示用户的得分 -->
+                    {% for score in scores %}
+                    <tr>
+                        <!-- 显示得分 -->
+                        <td>{{ score[0] }}</td>
+                        <!-- 显示得分日期 -->
+                        <td>{{ score[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 最高得分部分 -->
+        <div class="top-scores">
+            <h2>Top Scores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- 标题：玩家 -->
+                        <th>Player</th>
+                        <!-- 标题：最高得分 -->
+                        <th>High Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 遍历并显示所有玩家的最高得分 -->
+                    {% for score in top_scores %}
+                    <tr>
+                        <!-- 显示玩家姓名 -->
+                        <td>{{ score[0] }}</td>
+                        <!-- 显示玩家的最高得分 -->
+                        <td>{{ score[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
